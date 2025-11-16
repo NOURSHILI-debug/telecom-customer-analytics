@@ -3,29 +3,29 @@ import pandas as pd #data processing
 import matplotlib.pyplot as plt
 import seaborn as sns
 telecom=pd.read_csv('telecom.csv')
-#print(telecom.head())   
-#print(len( telecom),telecom.shape)
-#print ( type(telecom))
-#print(telecom.columns)
-#print(telecom.describe())
+print(telecom.head())   
+print(len( telecom),telecom.shape)
+print ( type(telecom))
+print(telecom.columns)
+print(telecom.describe())
 x=telecom['InternetService'].value_counts()
-#print(x)
+print(x)
 Fiber=telecom[telecom['InternetService']=='Fiber optic']
-#print(Fiber.head())
-#print(len(Fiber))
+print(Fiber.head())
+print(len(Fiber))
 DSL=telecom[telecom['InternetService']=='DSL']
-#print(DSL.head())
-#print(len(DSL))
+print(DSL.head())
+print(len(DSL))
 sorted_telecom=telecom.sort_values(by=['MonthlyCharges','TotalCharges'],
 ascending=[True, False]) 
-#print(sorted_telecom.head(10))
+print(sorted_telecom.head(10))
 #Internet Service Type Distribution
 plt.figure(figsize=(8,6))
 sns.countplot(data=telecom,x='InternetService',palette='Set2')
 plt.title('Nombre de clients par type de service Internet')
 plt.xlabel('Type de service Internet')
 plt.ylabel('Nombre de clients')
-#plt.show()
+plt.show()
 #Monthly charges distribution
 plt.figure(figsize=(8,6))
 sns.histplot(telecom['MonthlyCharges'],bins=30,kde=True,color='blue')
